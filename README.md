@@ -1,2 +1,2 @@
 # problems-sources
-Main workplace
+Contains personal source code to different algorithmic problems.
