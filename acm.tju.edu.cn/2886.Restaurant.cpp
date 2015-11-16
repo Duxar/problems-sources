@@ -1,3 +1,5 @@
+	// http://acm.tju.edu.cn/toj/showp2886.html - ACCEPTED
+
 #ifdef ONLINE_JUDGE
 #include <bits/stdc++.h>
 #else
@@ -108,6 +110,20 @@ int main(){
 			add_right -= points[i].second;
 
 			long long lg = points[i + 1].first - points[i].first - 1;
+
+			if (M >= cost_right + cost_left && M >= cost_left + add_left * (lg + 1) + cost_right - add_right * (lg + 1)) {
+				ans += lg;
+				cost_left += add_left * (lg + 1);
+				cost_right -= add_right * (lg + 1);
+				continue;
+			}
+
+			if (M < cost_right + cost_left && M < cost_left + add_left * (lg + 1) + cost_right - add_right * (lg + 1)) {
+				cost_left += add_left * (lg + 1);
+				cost_right -= add_right * (lg + 1);
+				continue;
+			}
+
 			long long p;
 			for (p = 1; p <= lg; p *= 2);
 
@@ -139,8 +155,8 @@ int main(){
 				}
 				ans += points[i + 1].first - poz - 1;
 			}
-			cost_left += add_left * (points[i + 1].first - points[i].first);
-			cost_right -= add_right * (points[i + 1].first - points[i].first);
+			cost_left += add_left * (lg + 1);
+			cost_right -= add_right * (lg + 1);
 		}
 		add_left += points[N - 1].second;
 		if (M >= cost_left) {
