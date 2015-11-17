@@ -1,3 +1,5 @@
+	// http://acm.tju.edu.cn/toj/showp4069.html - ACCEPTED
+
 #ifdef ONLINE_JUDGE
 #include <bits/stdc++.h>
 #else
